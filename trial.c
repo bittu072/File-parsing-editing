@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-struct Wifi_Config_Struct {
+struct Config_Struct {
 	int station_mode_active;
 	char *station_ssid;
 	char *station_password;
@@ -14,7 +14,7 @@ struct Wifi_Config_Struct {
 	char *ap_password;
 };
 
-void config_wifi(struct Wifi_Config_Struct wifi_settings)
+void file_update(struct Config_Struct wifi_settings)
 {
 
 	size_t buffer = 100;
@@ -71,7 +71,7 @@ void config_wifi(struct Wifi_Config_Struct wifi_settings)
 		else if (strstr(line, "**ap_ssid**") != NULL) {
 			if (Mode != 0) {
 				// ssid for ap
-				fprintf(fp_final, "	option ssid \'%s\'\n", wifi_settings.ap_ssid););
+				fprintf(fp_final, "	option ssid \'%s\'\n", wifi_settings.ap_ssid);
 			}
 			continue;
 		}
@@ -132,13 +132,12 @@ void main() {
 
 	// To activate the individual mode,
 	// 0 should be assigned to respected mode_active member of structure
-	struct Wifi_Config_Struct wifi;
+	struct Config_Struct wifi;
 	wifi.station_mode_active=0;
 	wifi.station_ssid="guest-wifi";
 	wifi.station_password="trythis";
 	wifi.station_protocol="psk";
 	wifi.ap_mode_active=1;
 
-
-	config_wifi(wifi);
+	file_update(wifi);
 }

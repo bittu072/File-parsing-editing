@@ -13,10 +13,10 @@ config wifi-iface 'ap_0'
 	option mode 'ap'
 	option hidden '0'
 	option maxassoc '30'
-	**ap_activation**
-	**ap_ssid**
+	option disabled '0'
+	option ssid 'wifi'
 	option encryption 'psk2'
-	**ap_passw**
+	option key 'hello'
 
 config wifi-iface 'ah_0'
 	option device 'radio0'
@@ -34,10 +34,10 @@ config wifi-iface 'sta_0'
 	option ifname 'wlan0-2'
 	option mode 'sta'
 	option network 'wwan'
-	**sta_activation**
-	**sta_ssid**
-	**sta_protocol**
-	**sta_passw**
+	option disabled '1'
+	option ssid 'home-123'
+	option encryption 'psk'
+	option key 'homes'
 
 config odhcpd 'odhcpd'
         option maindhcp '0'
