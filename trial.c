@@ -21,6 +21,7 @@ void file_update(struct Config_Struct wifi_settings)
 	int mode_avtive;
 	int Mode;
 	char line[buffer];
+	// change this path according to your file location
 	char file_path[]="/wifi.d/wifi_ap+sta"; // source file location
 	FILE *fp_template;
 	FILE *fp_final;
@@ -46,7 +47,9 @@ void file_update(struct Config_Struct wifi_settings)
 	}
 
 // target file location -- filw which you want to change
-	if ((fp_final = fopen("/file/you/want/to/change", "w")) == NULL)
+// change this path according to your file location
+// usual fie path for wifi configuration file /etc/config/wirless
+	if ((fp_final = fopen("/edit_this_file/wifi", "w")) == NULL)
 	{
 		//printf ("File could not be opened\n");
 		printf("Wireless file could not be opened");
@@ -121,6 +124,7 @@ void file_update(struct Config_Struct wifi_settings)
 
 	fclose (fp_final);
 	fclose (fp_template);
+	// if you are changin just random file then you don't need following line
 	system("/etc/init.d/network reload");
 	// sleep(10);
 	printf("check your.... files its been edited!!!!");
