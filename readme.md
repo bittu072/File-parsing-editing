@@ -3,13 +3,16 @@
 This is a function which gets data from assigned structure, parses the file and  and edit the files. I have created this function for wireless config file.
 ### Features
 * Written in C
+* Main program file is trial.c
 
 ### What's included
 ```
 File-parsing-editing/
-   |--wifi.d
-	|-- wifi_ap+sta
-   |--trial.c
+   |-- edit_this_file
+	  |-- wifi
+   |-- wifi.d
+	  |-- wifi_ap+sta
+   |-- trial.c
 ```
 
 ### Application
